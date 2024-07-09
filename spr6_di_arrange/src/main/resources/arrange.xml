@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 아래와 같이 생성한 객체는 싱글톤으로 생성되므로 객체의 주소는 동일하다. -->
+	<!-- scope가 singleton의 경우 같은 객체에 접근 이 값이 defualt이다. -->
+	<!-- scope가 prototype의 경우 객체가 매번 생성되고 객체의 주소가 다르다. -->
+	<bean id="mImpl" class="pack.controller.MessageImpl" scope="singleton"> 
+		<!-- constructor injection -->
+		<!-- index : 출력하는 순서를 정해주는 키워드 -->
+		<!-- type 키워드가 생략되있음 -->
+		<constructor-arg index="1" type="java.lang.String"> 
+			<value>안녕하세요</value>
+		</constructor-arg>
+		<constructor-arg index="0" type="String">
+			<value>반갑습니다</value>
+		</constructor-arg>
+		<constructor-arg index="2" type="int" value="24" />
+		<constructor-arg index="3" type="pack.model.MyInfoInter" ref="my"></constructor-arg>
+		
+		<!-- setter injection -->
+		<property name="spec">
+			<value>자바 개발 전문</value>
+		</property>
+		
+		<property name="fileInter">
+			<ref bean="outFileInterImpl" />
+		</property>
+		
+	</bean>       
+	
+	<bean id="myInfo" name="my,good" class="pack.model.MyInfo" />
+	
+    <bean id="outFileInterImpl" class="pack.other.OutFileInterImpl">
+    	<property name="filePath" value="c:/work2/message.txt" />
+    </bean>   
+</beans>
