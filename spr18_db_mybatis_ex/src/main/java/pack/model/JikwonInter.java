@@ -5,8 +5,6 @@ import java.util.List;
 public interface JikwonInter {
 
 	List<JikwonDto> JikwonList(); // 추상
-	
-	List<JikwonDto> BuserList(String buserNum);
-	
-	List<JikwonDto> PayList(String buserNum);
+	int BuserList(String buserNum);
+	JikwonDto PayList(String buserNum);
 }
