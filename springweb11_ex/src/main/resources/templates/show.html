@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>😊직원 목록(@MVC : Mybatis 방법)😒</h3> <!-- Spring web mvc -->
+<table border="1">
+	<th:block th:if="${datas.size} > 0">
+	<tr>
+		<th>사번</th><th>직원명</th><th>성별</th><th>연봉</th>
+	</tr>
+	<tr th:each="data:${datas}">
+		<td th:text="${data.jikwon_no}">사번 출력</td>
+		<td>[[${data.jikwon_name}]]</td>
+		<td>[[${data.jikwon_gen}]]</td>
+		<td>[[${data.jikwon_pay}]]</td>
+	</tr>
+	<tr>
+		<td colspan="4" th:text="|인원수 : ${count}명|"></td>
+	</tr>
+	</th:block>
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>😎회원 정보 수정😎</h3>
+<form th:action="@{/update}" method="post" th:object="${member}">
+
+	아 이 디 : [[*{id}]]
+	<input type="hidden"  th:field="*{id}"><br>
+	비 밀 번 호 : <input type="text"  th:field="*{passwd}"><br>
+	이 름 : <input type="text"  th:field="*{name}"><br> 
+	<br>
+	<input type="submit" value="수 정">
+	<input type="button" value="이 전" onclick="history.back()">	
+</form>	
+</body>
+</html>
