@@ -19,7 +19,7 @@ public interface DataMapperInter {
 	
 	// 특정 조회
 	@Select("select * from mem where num=#{num}")
-	List<MemDto> selectPart(String num);
+	MemDto selectPart(String num);
 	
 	// 추가
 	@Insert("insert into mem values(#{num},#{name},#{addr})")

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>templates/list.html</title>
 </head>
 <body>
-<h3>회원정보 상세보기</h3>
+<h3>😺회원목록😺 (@MVC - MyBatis)</h3>
+<a th:href="@{/insert}">➕회원추가</a>
+
+<table border="1">
+	<tr>
+		<th>번호</th><th>이름</th><th>주소</th><th>수정/삭제</th>	
+	</tr>
+	<th:block th:if="${datas.size > 0}">
+	<tr th:each="data:${datas}"> 
+		<td>[[${data.num}]]</td>
+		<td>[[${data.name}]]</td>
+		<td>[[${data.addr}]]</td>
+		<td>
+			<a th:href="@{/update(num=${data.num})}">회원수정✅</a>
+			<a th:href="@{/delete(num=${data.num})}">회원삭제❌</a>
+		</td>
+	</tr>
+	</th:block>
+</table>
+<br>
+<a th:href="@{/}">↩️돌아가기</a>
 </body>
 </html>
