@@ -75,10 +75,14 @@ public class Springweb14JpaApplication {
 		ProductVo vo5 = repository.findByCodeMy2(1); // 메소드 이름 임의 생성(순서(위치) 기반)
 		System.out.println(vo5.getCode() + " " + vo5.getSang() + " " + vo5.getSu() + " " + vo5.getDan());
 		
-		List<ProductVo> list3 = repository.findByData(1,"물티슈"); // 
+		List<ProductVo> list3 = repository.findByData(1,"물티슈"); // findByData() 메소드는 직접 만든 메소드
 		for(ProductVo vo6 : list3) {
 			System.out.println(vo6.getCode() + " " + vo6.getSang() + " " + vo6.getSu() + " " + vo6.getDan());
-		} 
+		}
+		System.out.println("-------Native SQL 결과--------");
+		List<ProductVo> list5 = repository.findAllData2(); // findAllData2() 메소드는 직접 만든 메소드
+		for(ProductVo vo_ql : list5) {
+			System.out.println(vo_ql.getCode() + " " + vo_ql.getSang() + " " + vo_ql.getSu() + " " + vo_ql.getDan());
+		}
 	}
-
 }
